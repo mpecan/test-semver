@@ -8,9 +8,19 @@ tag_prefix = "v"
 [git_hooks]
 
 [commit_types]
+feat = { changelog_title = "➕ Additional features" }
+fix = { changelog_title = "🪲 Fixes" }
+chore = { changelog_title = "🧹 Maintenance" }
+docs = { changelog_title = "📚 Documentation" }
+style = { changelog_title = "🎨 Code style" }
+refactor = { changelog_title = "🔨 Refactoring" }
+perf = { changelog_title = "⚡ Performance" }
 
 [changelog]
-path = "CHANGELOG.md"
+template = "remote"
+remote = "github.com"
+owner = "mpecan"
+repository = "test-semver"
 authors = []
 
 [bump_profiles]
