@@ -3,6 +3,11 @@ name: Run on Merge action
 on:
   push:
     branches: ["main"]
+    
+permissions:
+  actions: write
+  checks: write
+  contents: write
 
 jobs:
   build-main:
