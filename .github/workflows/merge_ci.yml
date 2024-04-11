@@ -27,7 +27,6 @@ jobs:
           git-user: 'Cog Bot'
           git-user-email: 'cog@pecan.si'
 
-
       - name: Generate Changelog
         run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
 
