@@ -13,10 +13,21 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Semver release
+        id: release
         uses: cocogitto/cocogitto-action@v3
         with:
           release: true
           check: false
           git-user: 'Cog Bot'
           git-user-email: 'cog@pecan.si'
+
+      - name: Generate Changelog
+        run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
+
+      - name: Upload github release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: GITHUB_CHANGELOG.md
+          tag_name: ${{ steps.release.outputs.version }}
