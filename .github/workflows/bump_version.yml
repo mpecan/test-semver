@@ -1,9 +1,15 @@
 name: Version bump
+
 on:
   pull_request:
     branches: [ "main" ]
     types: [ closed ]
   workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
 jobs:
   perform-patch-bump:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'bump:patch')) }}
