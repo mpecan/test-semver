@@ -1,8 +1,12 @@
 name: Run on Merge action
 
 on:
-  push:
-    branches: ["main"]
+  workflow_call:
+    inputs:
+      bump_type:
+        required: true
+        type: string
+        description: 'The version to release'
     
 permissions:
   actions: read
@@ -22,10 +26,14 @@ jobs:
         id: release
         uses: cocogitto/cocogitto-action@v3
         with:
-          release: true
           check: false
           git-user: 'Cog Bot'
           git-user-email: 'cog@pecan.si'
+
+      - name: Bump version
+        run: |
+          echo "Bumping version to ${{ steps.release.outputs.version }}"
+          cog bump --${{ inputs.bump_type }}
 
       - name: Generate Changelog
         run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
