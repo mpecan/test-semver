@@ -7,16 +7,16 @@ on:
 jobs:
   perform-patch-bump:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'bump:patch')) }}
-    uses: ./github/workflows/bump_version.yml
+    uses: ./.github/workflows/bump_version.yml
     with:
       bump_type: patch
   perform-minor-bump:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'bump:minor')) }}
-    uses: ./github/workflows/bump_version.yml
+    uses: ./.github/workflows/bump_version.yml
     with:
       bump_type: minor
   perform-major-bump:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'bump:major')) }}
-    uses: ./github/workflows/bump_version.yml
+    uses: ./.github/workflows/bump_version.yml
     with:
       bump_type: major
