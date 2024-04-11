@@ -21,6 +21,7 @@ template = "remote"
 remote = "github.com"
 owner = "mpecan"
 repository = "test-semver"
+path = "CHANGELOG.md"
 authors = []
 
 [bump_profiles]
