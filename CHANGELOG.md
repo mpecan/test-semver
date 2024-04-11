@@ -2,7 +2,22 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
-## 0.0.2 - 2024-04-11
+## v0.0.3 - 2024-04-11
+#### Miscellaneous Chores
+- **(ci)** Testing a bump - (666fc54) - Matjaž Domen Pečan
+- **(ci)** Testing a bump - (0781491) - Matjaž Domen Pečan
+- **(ci)** Action needs to be able to write. - (752c72c) - Matjaž Domen Pečan
+- **(ci)** Action needs to be able to write. - (2d1b8d7) - Matjaž Domen Pečan
+- **(ci)** Oops, seems that cog sets configurations up that do not exist yet. - (95ba491) - Matjaž Domen Pečan
+- **(ci)** Disable the check on the main release step (we need to ensure this was done in PR) - (5d35e27) - Matjaž Domen Pečan
+- **(merge)** Merge pull request #5 from mpecan/fix-broken-main-ci - (e01179a) - Matjaž Pečan
+- **(version)** From-latest-tag? - (2318012) - Matjaž Domen Pečan
+- **(version)** The tag_prefix has to be set. - (bac84d1) - Matjaž Domen Pečan
+- **(version)** Creating the actual version now - (5690e35) - Matjaž Domen Pečan
+
+- - -
+
+## v0.0.2 - 2024-04-11
 #### Miscellaneous Chores
 - **(ci)** Testing a bump - (666fc54) - Matjaž Domen Pečan
 - **(ci)** Testing a bump - (0781491) - Matjaž Domen Pečan
