@@ -17,6 +17,6 @@ jobs:
         uses: cocogitto/cocogitto-action@v3
         with:
           release: true
-          check-latest-tag-only: true
+          check: false
           git-user: 'Cog Bot'
           git-user-email: 'cog@pecan.si'
