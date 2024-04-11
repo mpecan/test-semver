@@ -6,6 +6,7 @@ on:
 
 jobs:
   build-main:
+    runs-on: ubuntu-latest
     steps:
         - name: Semver release
           uses: cocogitto/cocogitto-action@v3
