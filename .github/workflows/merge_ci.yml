@@ -1,0 +1,15 @@
+name: Run on Merge action
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-main:
+    steps:
+        - name: Semver release
+          uses: cocogitto/cocogitto-action@v3
+          with:
+            release: true
+            git-user: 'Cog Bot'
+            git-user-email: 'cog@pecan.si'
