@@ -8,9 +8,14 @@ jobs:
   build-main:
     runs-on: ubuntu-latest
     steps:
-        - name: Semver release
-          uses: cocogitto/cocogitto-action@v3
-          with:
-            release: true
-            git-user: 'Cog Bot'
-            git-user-email: 'cog@pecan.si'
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Semver release
+        uses: cocogitto/cocogitto-action@v3
+        with:
+          release: true
+          git-user: 'Cog Bot'
+          git-user-email: 'cog@pecan.si'
