@@ -23,7 +23,6 @@ jobs:
           fetch-depth: 0
 
       - name: Semver release
-        id: release
         uses: cocogitto/cocogitto-action@v3
         with:
           check: false
@@ -31,9 +30,12 @@ jobs:
           git-user-email: 'cog@pecan.si'
 
       - name: Bump version
+        id: release
         run: |
-          echo "Bumping version to ${{ steps.release.outputs.version }}"
-          cog bump --${{ inputs.bump_type }}
+          echo "Bumping version: ${{ inputs.bump_type }}"
+          cog bump --${{ inputs.bump_type }} || exit 1
+          VERSION="$(git describe --tags "$(git rev-list --tags --max-count=1)")"
+          echo ::set-output name=version::"$VERSION"
 
       - name: Generate Changelog
         run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
