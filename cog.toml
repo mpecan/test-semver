@@ -1,7 +1,6 @@
 from_latest_tag = true
 ignore_merge_commits = true
 disable_changelog = true
-disable_bump_commit = true
 skip_ci = "[skip ci]"
 skip_untracked = false
 tag_prefix = "v"
