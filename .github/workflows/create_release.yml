@@ -36,7 +36,23 @@ jobs:
           cog bump --${{ inputs.bump_type }} --disable-bump-commit || exit 1
           VERSION="$(git describe --tags "$(git rev-list --tags --max-count=1)")"
           echo ::set-output name=version::"$VERSION"
-          git reset HEAD~ --hard
+
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          # required
+          app-id: "875378"
+          private-key: ${{ secrets.PRIVATE_KEY }}
+
+      - name: Write version to file, commit and push to repository
+        id: write-version
+        run: |
+          echo ${{ steps.release.outputs.version }} > VERSION.md
+          git config --global user.name "PushToProtectedBranch"
+          git config --global user.email "version@pecan.si"
+          git add VERSION.md
+          git commit -m "chore(version): Bump version to ${{ steps.release.outputs.version }}"
+          git push https//oauth2:${{ steps.app-token.token }}@github.com/${{ github.repository }}.git origin HEAD:main
 
       - name: Generate Changelog
         run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
