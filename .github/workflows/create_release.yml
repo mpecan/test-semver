@@ -52,7 +52,7 @@ jobs:
           git config --global user.email "version@pecan.si"
           git add VERSION.md
           git commit -m "chore(version): Bump version to ${{ steps.release.outputs.version }}"
-          git push https//oauth2:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }}.git HEAD:main
+          git push https//oauth2:${{ steps.app-token.outputs.token }}@github.com/${{ github.repository }} HEAD:main
 
       - name: Generate Changelog
         run: cog changelog --at ${{ steps.release.outputs.version }} -t full_hash > GITHUB_CHANGELOG.md
