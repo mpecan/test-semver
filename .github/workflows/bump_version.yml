@@ -16,13 +16,16 @@ jobs:
     uses: ./.github/workflows/create_release.yml
     with:
       bump_type: patch
+    secrets: inherit
   perform-minor-bump:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'bump:minor')) }}
     uses: ./.github/workflows/create_release.yml
     with:
       bump_type: minor
+    secrets: inherit
   perform-major-bump:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'bump:major')) }}
     uses: ./.github/workflows/create_release.yml
     with:
       bump_type: major
+    secrets: inherit
