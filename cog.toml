@@ -1,9 +1,24 @@
 from_latest_tag = true
 ignore_merge_commits = true
-disable_changelog = true
+disable_changelog = false
 skip_ci = "[skip ci]"
 skip_untracked = false
 tag_prefix = "v"
+
+pre_bump_hooks = [
+    "echo 'bumping from {{latest}} to {{version}}'",
+    "echo '{{version}}' > VERSION.md",
+]
+
+post_bump_hooks = [
+    "git push origin main",
+    "git push origin --tags",
+    "echo 'Setting next version to {{version+1patch-SNAPSHOT}}'",
+    "echo '{{version+1patch-SNAPSHOT}}' > VERSION.md",
+    "git add VERSION.md",
+    "git commit -m 'chore(version): set next version to {{version+1patch-SNAPSHOT}}'",
+    "git push origin main",
+]
 
 [git_hooks]
 
