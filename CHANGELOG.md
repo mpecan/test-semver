@@ -14,6 +14,13 @@
 - **(secrets)** Secrets have to be inherited by the called workflow. - ([e88f5a3](https://github.com/mpecan/test-semver/commit/e88f5a30a481b80725b6e846ccf5a49f9177411a)) - Matjaž Domen Pečan
 
 - - -
+## [v2.1.0](https://github.com/mpecan/test-semver/compare/4d290144d0b7abe2bde0bb1d74fd4b720e66495d..v2.1.0) - 2024-04-15
+#### 🧹 Maintenance
+- **(release)** Delegate as much as possible to `cog` (#32) - ([68e1413](https://github.com/mpecan/test-semver/commit/68e14134fcaca9e27cafe53cc158f6c43b13867c)) - Matjaž Pečan
+- **(release)** Delegate as much as possible to `cog` - ([4d29014](https://github.com/mpecan/test-semver/commit/4d290144d0b7abe2bde0bb1d74fd4b720e66495d)) - Matjaž Domen Pečan
+
+- - -
+
 
 ## [v1.2.0](https://github.com/mpecan/test-semver/compare/v1.1.2..v1.2.0) - 2024-04-15
 #### 🧹 Maintenance
